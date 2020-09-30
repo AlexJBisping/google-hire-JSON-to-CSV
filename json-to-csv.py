@@ -12,7 +12,7 @@ for json_file_path in json_file_paths:
     do_not_parse = ['Integrations', 'Historical']
     if any(string in json_file_path for string in do_not_parse):
         continue
-    print 'Processing {}...'.format(json_file_name)
+    print('Processing {}...'.format(json_file_name))
     with open(json_file_path) as f:
         json_data = json.load(f)
     try:
@@ -22,4 +22,3 @@ for json_file_path in json_file_paths:
         continue
     csv_file_path = re.sub(".json", ".csv", json_file_path)
     df.to_csv(csv_file_path, index=False, encoding='utf-8')
-
